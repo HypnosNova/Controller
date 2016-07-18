@@ -1,6 +1,7 @@
 {
   "name": "Controller",
   "version": "0.0.0",
+  "main": "app.js",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -14,5 +15,9 @@
     "debug": "*",
     "hbs": "*",
     "socket.io":"*"
-  }
+  },
+    "engines": {
+        "node": "0.10.x",
+        "npm": "1.2.x"
+    }
 }
