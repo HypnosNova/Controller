@@ -13,6 +13,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var server = require('http').createServer(app);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -37,6 +38,7 @@ app.use(function(req, res, next) {
 	next(err);
 });
 
+server.listen(3000);
 // error handlers
 
 // development error handler
@@ -83,10 +85,3 @@ io.on('connection', function(socket) {
 		io.sockets.sockets[tmp[0]].emit('pongControl', tmp[1]+"="+tmp[2]+"="+tmp[3]+"="+tmp[4]);
 	});
 });
-
-
-http.listen(3000, function() {
-	console.log('listening on *:3000');
-});
-
-//module.exports = app;
